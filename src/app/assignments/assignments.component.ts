@@ -21,7 +21,8 @@ export class AssignmentsComponent implements OnInit {
   nextPage: number = 0;
 
   // pour l'affichage en table
-  displayedColumns: string[] = ['demo-id', 'demo-nom', 'demo-dateDeRendu', 'demo-rendu',"edit","delete"];
+  displayedColumns: string[] = ['demo-id', 'demo-nom', 'demo-dateDeRendu', 'demo-rendu',
+    "detail","edit","delete"];
 
   assignments: Assignment[] = [];
 

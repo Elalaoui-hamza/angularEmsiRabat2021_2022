@@ -27,6 +27,8 @@ import { EditAssignmentComponent } from './edit-assignment/edit-assignment.compo
 import { AuthGuard } from './shared/auth.guard';
 import { HttpClientModule } from '@angular/common/http';
 import {MatPaginatorModule} from "@angular/material/paginator";
+import {MatSelectModule} from "@angular/material/select";
+import {MatSliderModule} from "@angular/material/slider";
 
 const routes: Routes = [
   {
@@ -65,8 +67,8 @@ const routes: Routes = [
     BrowserModule, FormsModule,
     BrowserAnimationsModule, MatButtonModule, MatIconModule, MatDividerModule,
     MatInputModule, MatFormFieldModule, MatDatepickerModule, MatNativeDateModule,
-    MatListModule, MatCardModule, MatCheckboxModule, MatSlideToggleModule, MatTableModule,MatPaginatorModule,
-    RouterModule.forRoot(routes), HttpClientModule
+    MatListModule, MatCardModule, MatCheckboxModule, MatSlideToggleModule, MatTableModule, MatPaginatorModule,
+    RouterModule.forRoot(routes), HttpClientModule, MatSelectModule, MatSliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]
