@@ -26,6 +26,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { EditAssignmentComponent } from './edit-assignment/edit-assignment.component';
 import { AuthGuard } from './shared/auth.guard';
 import { HttpClientModule } from '@angular/common/http';
+import {MatPaginatorModule} from "@angular/material/paginator";
 
 const routes: Routes = [
   {
@@ -64,7 +65,7 @@ const routes: Routes = [
     BrowserModule, FormsModule,
     BrowserAnimationsModule, MatButtonModule, MatIconModule, MatDividerModule,
     MatInputModule, MatFormFieldModule, MatDatepickerModule, MatNativeDateModule,
-    MatListModule, MatCardModule, MatCheckboxModule, MatSlideToggleModule, MatTableModule,
+    MatListModule, MatCardModule, MatCheckboxModule, MatSlideToggleModule, MatTableModule,MatPaginatorModule,
     RouterModule.forRoot(routes), HttpClientModule
   ],
   providers: [],

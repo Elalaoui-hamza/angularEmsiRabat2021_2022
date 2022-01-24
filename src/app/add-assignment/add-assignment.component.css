@@ -1,3 +1,18 @@
+.center{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 700px;
+  background: #f7ecff;
+  border-radius: 10px;
+  padding: 10px;
+}
+.center h2{
+  text-align: center;
+  padding: 0 0 20px 0;
+  border-bottom: 1px solid silver;
+}
 .form {
   display:flex;
   flex-direction: column;
