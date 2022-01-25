@@ -31,6 +31,7 @@ import {MatSelectModule} from "@angular/material/select";
 import {MatSliderModule} from "@angular/material/slider";
 import {MatDialogModule} from "@angular/material/dialog";
 import { DialogDeleteComponent } from './dialog-delete/dialog-delete.component';
+import {MatSidenavModule} from "@angular/material/sidenav";
 
 const routes: Routes = [
   {
@@ -67,14 +68,14 @@ const routes: Routes = [
     DialogDeleteComponent
   ],
   entryComponents:[DialogDeleteComponent],
-  imports: [
-    BrowserModule, FormsModule,
-    BrowserAnimationsModule, MatButtonModule, MatIconModule, MatDividerModule,
-    MatInputModule, MatFormFieldModule, MatDatepickerModule, MatNativeDateModule,
-    MatListModule, MatCardModule, MatCheckboxModule, MatSlideToggleModule, MatTableModule, MatPaginatorModule,
-    MatDialogModule,
-    RouterModule.forRoot(routes), HttpClientModule, MatSelectModule, MatSliderModule
-  ],
+    imports: [
+        BrowserModule, FormsModule,
+        BrowserAnimationsModule, MatButtonModule, MatIconModule, MatDividerModule,
+        MatInputModule, MatFormFieldModule, MatDatepickerModule, MatNativeDateModule,
+        MatListModule, MatCardModule, MatCheckboxModule, MatSlideToggleModule, MatTableModule, MatPaginatorModule,
+        MatDialogModule,
+        RouterModule.forRoot(routes), HttpClientModule, MatSelectModule, MatSliderModule, MatSidenavModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

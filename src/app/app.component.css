@@ -29,3 +29,11 @@ section {
   justify-content: center;
   width: 120px;
 }
+
+.titlenav{
+  text-align: center;
+}
+.mrfunc{
+margin: 10px;
+  float: left;
+}
