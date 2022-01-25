@@ -4,6 +4,7 @@ import { Assignment } from './assignment.model';
 import {MatDialog} from '@angular/material/dialog';
 import {DialogDeleteComponent} from "../dialog-delete/dialog-delete.component";
 import {Router} from "@angular/router";
+import {AuthService} from "../shared/auth.service";
 
 @Component({
   selector: 'app-assignments',
@@ -30,7 +31,7 @@ export class AssignmentsComponent implements OnInit {
   assignments: Assignment[] = [];
 
   constructor(private assignmentService: AssignmentsService, public dialog: MatDialog,
-              private router: Router,) {}
+              private router: Router,private authService: AuthService) {}
 
   ngOnInit(): void {
     // appelé AVANT l'affichage (juste après le constructeur)
@@ -109,5 +110,12 @@ export class AssignmentsComponent implements OnInit {
         }
       }
     });
+  }
+
+  onClickEdit() {
+    this.router.navigate(['/assignment', this.assignmentTransmis?.id, 'edit']);
+  }
+  isAdmin() {
+    return this.authService.loggedIn;
   }
 }
