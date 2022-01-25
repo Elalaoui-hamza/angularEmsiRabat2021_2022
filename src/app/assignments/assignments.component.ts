@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { AssignmentsService } from '../shared/assignments.service';
 import { Assignment } from './assignment.model';
+import {MatDialog} from '@angular/material/dialog';
+import {DialogDeleteComponent} from "../dialog-delete/dialog-delete.component";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-assignments',
@@ -26,7 +29,8 @@ export class AssignmentsComponent implements OnInit {
 
   assignments: Assignment[] = [];
 
-  constructor(private assignmentService: AssignmentsService) {}
+  constructor(private assignmentService: AssignmentsService, public dialog: MatDialog,
+              private router: Router,) {}
 
   ngOnInit(): void {
     // appelé AVANT l'affichage (juste après le constructeur)
@@ -82,5 +86,28 @@ export class AssignmentsComponent implements OnInit {
   premierePage() {
     this.page = 1;
     this.getAssignments();
+  }
+  assignmentTransmis?: Assignment;
+  @Input() idAssi:any;
+
+  openDelteDialog(id: number){
+    let dialogDeleteRef = this.dialog.open(DialogDeleteComponent);
+
+    dialogDeleteRef.afterClosed().subscribe(result => {
+      if (result==="true"){
+        this.assignmentService.getAssignment(id).subscribe((assignment) => {
+          this.assignmentTransmis = assignment;
+        });
+        if(this.assignmentTransmis){
+          this.assignmentService.deleteAssignment(this.assignmentTransmis)
+            .subscribe((reponse) => {
+              console.log('Réponse du serveur : ' + reponse.message);
+              // on navigue vers la page d'accueil pour afficher la liste à jour
+              this.router.navigate(['/home']);
+            });
+          this.assignmentTransmis = undefined;
+        }
+      }
+    });
   }
 }
