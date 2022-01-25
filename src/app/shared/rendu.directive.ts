@@ -7,5 +7,6 @@ export class RenduDirective {
 
   constructor(el:ElementRef) {
     el.nativeElement.style.color = "green";
+    //el.nativeElement.style.background = "palegreen";
   }
 }
